@@ -1,0 +1,33 @@
+function binarySearch (arr, find) {
+    var high = arr.length,
+        low = 0,
+        middle;
+
+    while (high > low) {
+        middle = Math.floor((high + low) / 2);
+        if (arr[middle] > find) {
+            high = middle;
+        } else if (arr[middle] === find){
+            return middle
+        } else {
+            low = middle;
+        }
+    }
+    return -1
+}
+function binarySearchWithRecursion (arr, find, low, high) {
+    //当传入的参数有low和high，就使用这两个，没有传入就自己定义
+    var first = (typeof low !== 'undefined' ? low : 0),
+        last = (typeof high !== 'undefined' ? high : arr.length),
+        middle = Math.floor((first + last) / 2);
+    if (first >= last) {
+        return -1
+    }
+    if (arr[middle] > find) {
+        return binarySearchWithRecursion(arr, find, first, middle);
+    } else if (arr[middle] === find){
+        return middle
+    } else {
+        return binarySearchWithRecursion(arr, find, middle, last);
+    }
+}
