@@ -1,0 +1,36 @@
+   //归并排序和快速排序都是采用分治法。归并排序的思想是先将一个数组序列分成单个的元素，
+   //然后再两两归并成有序的序列。最后(递归)得到整个有序的序列。
+   function mergeSort (arr) {
+        if (!Array.isArray(arr)) {
+            console.error('arr is not an Array');
+            return arr
+        }
+        var len = arr.length;
+        if (len < 2) {
+            return arr
+        }
+        var middle = Math.floor(len / 2),
+            leftArr = arr.slice(0, middle),
+            rightArr = arr.slice(middle, len);
+        return merge(mergeSort(leftArr), mergeSort(rightArr))
+    }
+    //归并函数
+    function merge (leftArr, rightArr) {
+        var result = [];
+        while (leftArr.length && rightArr.length) {
+            if (leftArr[0] < rightArr[0]) {
+            	result.push(leftArr.shift(0));
+            } else {
+            	result.push(rightArr.shift(0));
+            }
+        }
+        if (leftArr.length) {
+        	result = result.concat(leftArr);
+        }
+        if (rightArr.length) {
+          	result = result.concat(rightArr);
+        }
+        return result
+    }
+    var arr = [4, 5, 1, 3, 2, 5, 4, 7, 45, 6, -1]
+    console.log(mergeSort(arr));
