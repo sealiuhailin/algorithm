@@ -1,0 +1,26 @@
+//二叉树的前序遍历递归算法，先访问根节点，再访问左子树，最后是右子树。
+function preorder(node) {
+    if (node) {
+        show(node);
+        preorder(node.children[0]);
+        preorder(node.children[1]);
+    }
+}
+//非递归算法，利用栈的特性，每次将根节点入栈访问，然后弹出的时候把左右子节点都入栈。
+function preorderUnRecur(node) {
+    if (!node) {
+        throw new Error("node is empty");
+    }
+    var stack = [];
+    stack.push(node);
+    while (stack.length !== 0) {
+        node = stack.pop();
+        show(node);
+        if (node.children[1]) {
+         	  stack.push(node.children[1]);
+        } 
+        if (node.children[0]) {
+         	  stack.push(node.children[0]);
+        }
+	  }
+}
