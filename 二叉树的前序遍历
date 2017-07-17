@@ -7,7 +7,7 @@ function preorder(node) {
     }
 }
 //非递归算法，利用栈的特性，每次将根节点入栈访问，然后弹出的时候把左右子节点都入栈。
-function preorderUnRecur(node) {
+function preorderNonRecur(node) {
     if (!node) {
         throw new Error("node is empty");
     }
@@ -17,10 +17,10 @@ function preorderUnRecur(node) {
         node = stack.pop();
         show(node);
         if (node.children[1]) {
-         	  stack.push(node.children[1]);
+            stack.push(node.children[1]);
         } 
         if (node.children[0]) {
-         	  stack.push(node.children[0]);
+            stack.push(node.children[0]);
         }
-	  }
+    }
 }
