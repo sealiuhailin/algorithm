@@ -1,0 +1,29 @@
+//二叉树的中序遍历递归算法
+function inorder(node) {
+    if (node) {
+        inorder(node.children[0]);
+        show(node);
+        inorder(node.children[1]);
+    }
+}
+
+//非递归算法思想，先判断根节点是否存在，如果存在就入栈，同时判断左子节点是否存在，如何存在就入栈(因为要先访问左子树)，
+//如果(栈顶)根节点不存在，就做出栈操作，同时把右子节点入栈。
+function inorderNonRecursive(node) {
+    if (!node) {
+        throw new Error("node is empty");
+    }
+    var stack = [];
+    //这儿不要讲node结点加入到stack，否则多遍历一个右子树。
+    // stack.push(node);
+    while (stack.length !== 0 || node) {
+        if (node) {
+            stack.push(node); //
+            node = node.children[0];
+        } else {
+            node = stack.pop();
+            show(node);
+            node = node.children[1];
+        }
+    }
+}
