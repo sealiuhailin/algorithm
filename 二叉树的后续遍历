@@ -9,7 +9,7 @@ function postorder(node){
 //非递归算法，利用双栈，因为后续遍历的顺序是(左子树->右子树->根),所以我们需要在最后结果中的s2从栈顶往下是这个顺序(然后做出栈操作就行)。
 //先将根节点入s1栈，然后s1栈顶元素弹出到s2中(入栈) 同时 将栈顶元素的左右子树入栈。
 
-function postorderUnRecur(node) {
+function postorderNonRecur(node) {
     if (node) {
         var s1 = [];
         var s2 = [];
