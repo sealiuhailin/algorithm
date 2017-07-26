@@ -25,6 +25,7 @@ function binarySearchWithRecursion (arr, find, low, high) {
     if (first >= last) {
         return -1
     }
+    
     if (arr[middle] > find) {
         return binarySearchWithRecursion(arr, find, first, middle);
     } else if (arr[middle] === find){
