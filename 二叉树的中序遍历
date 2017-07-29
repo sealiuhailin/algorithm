@@ -14,7 +14,7 @@ function inorderNonRecursive(node) {
         throw new Error("node is empty");
     }
     var stack = [];
-    //这儿不要讲node结点加入到stack，否则多遍历一个右子树。
+    //这儿不要多push node结点加入到stack，否则多遍历一个右子树。
     // stack.push(node);
     while (stack.length !== 0 || node) {
         if (node) {
