@@ -1,0 +1,47 @@
+递归算法 先交换左右子树，然后在交换左右子树的子树。。。
+function invertBinaryTree (node) {
+    if (node == null) {
+        return
+	  }
+    var temp = node.children[0];
+    node.children[0] = node.children[1];
+    node.children[1] = temp;
+
+    invertBinaryTree(node.children[0]);
+    invertBinaryTree(node.children[1]);
+}
+
+// 实现思想，利用栈和队列都可以，只需在交换左右子树的时候，把左右子树都放入栈或者队列，然后在下一次循环中又再次做交换
+function invertBinaryTreeNonRecur (node) {
+    if (node == null) {
+        return
+    }
+    var temp,
+        stack = [];
+    stack.push(node);
+    while (stack.length !== 0) {
+        node = stack.pop();
+        //左右子树都不存在(根节点)的时候就不交换
+        if (node.children[0] || node.children[1]) {
+
+            temp = node.children[0]
+            node.children[0] = node.children[1];
+            node.children[1] = temp;
+
+            if (node.children[0]) {
+                stack.push(node.children[0]);
+            }
+            if (node.children[1]) {
+                stack.push(node.children[1]);
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
