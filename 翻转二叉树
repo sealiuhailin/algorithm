@@ -11,7 +11,7 @@ function invertBinaryTree (node) {
     invertBinaryTree(node.children[1]);
 }
 
-// 实现思想，利用栈和队列都可以，只需在交换左右子树的时候，把左右子树都放入栈或者队列，然后在下一次循环中又再次做交换
+//非递归算法,实现思想:利用栈或者队列，只需在交换左右子树的时候，把左右子树都放入栈或者队列，然后在下一次循环中又再次做交换
 function invertBinaryTreeNonRecur (node) {
     if (node == null) {
         return
