@@ -1,4 +1,4 @@
-递归算法 先交换左右子树，然后在交换左右子树的子树。。。
+//递归算法 先交换左右子树，然后在交换左右子树的子树。。。
 function invertBinaryTree (node) {
     if (node == null) {
         return
@@ -10,6 +10,7 @@ function invertBinaryTree (node) {
     invertBinaryTree(node.children[0]);
     invertBinaryTree(node.children[1]);
 }
+
 
 //非递归算法,实现思想:利用栈或者队列，只需在交换左右子树的时候，把左右子树都放入栈或者队列，然后在下一次循环中又再次做交换
 function invertBinaryTreeNonRecur (node) {
