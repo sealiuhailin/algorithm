@@ -1,0 +1,161 @@
+zmodload zsh/zprof
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/liuhailin/.oh-my-zsh"
+export NODE_OPTIONS=--max_old_space_size=8086
+# export PATH="$PATH:/usr/local/mongodb/bin"
+export NVM_LAZY_LOAD=true # lazyload nvm
+export NVM_COMPLETION=true
+
+# automatically upgrade itself without prompting
+DISABLE_UPDATE_PROMPT=true
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="ys"
+# zstyle ':omz:update' mode auto
+
+
+# # This loads nvm
+# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  # git zsh-autosuggestions autojump z zsh-nvm
+  git zsh-autosuggestions autojump zsh-nvm
+  # git zsh-autosuggestions autojump
+)
+
+#autojump
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+export LESSCHARSET=utf-8
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+#npm
+alias bnpm=npm --registry=http://bnpm.byted.org
+alias git='LANG=en_GB git'
+# alias ms=mongod --dbpath /usr/local/var/mongodb --logpath /usr/local/var/log/mongodb/mongo.log --fork
+# alias pm=ps aux | grep -v grep | grep mongod
+
+# source ~/.bash_profile
+
+# # 如果你不是通过Android Studio安装的sdk，则其路径可能不同，请自行确定清楚
+# export ANDROID_HOME=$HOME/Library/Android/sdk
+# export PATH=$PATH:$ANDROID_HOME/emulator
+# export PATH=$PATH:$ANDROID_HOME/tools
+# export PATH=$PATH:$ANDROID_HOME/tools/bin
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# git 大小写敏感
+git config --global core.ignorecase false
+
+# export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+# export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+
+# # Load all of the plugins that were defined in ~/.zshrc
+# for plugin ($plugins); do
+#   timer=$(($(gdate +%s%N)/1000000))
+#   if [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then
+#     source $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh
+#   elif [ -f $ZSH/plugins/$plugin/$plugin.plugin.zsh ]; then
+#     source $ZSH/plugins/$plugin/$plugin.plugin.zsh
+#   fi
+#   now=$(($(gdate +%s%N)/1000000))
+#   elapsed=$(($now-$timer))
+#   echo $elapsed":" $plugin
+# done
+
+# fnm
+export PATH="/Users/liuhailin/Library/Application Support/fnm:$PATH"
+eval "`fnm env`"
+# fnm 自动识别 .node-version or .nvmrc，切换 node 版本
+eval "$(fnm env --use-on-cd)"
+
+# source $ZSH/oh-my-zsh.sh
+source /Users/liuhailin/.oh-my-zsh/oh-my-zsh.sh
