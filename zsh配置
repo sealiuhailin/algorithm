@@ -3,7 +3,7 @@ zmodload zsh/zprof
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/liuhailin/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export NODE_OPTIONS=--max_old_space_size=8086
 # export PATH="$PATH:/usr/local/mongodb/bin"
 export NVM_LAZY_LOAD=true # lazyload nvm
@@ -118,7 +118,7 @@ export LESSCHARSET=utf-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #npm
-alias bnpm=npm --registry=http://bnpm.byted.org
+alias bnpm=npm --registry=http://npmmirror.com
 alias git='LANG=en_GB git'
 # alias ms=mongod --dbpath /usr/local/var/mongodb --logpath /usr/local/var/log/mongodb/mongo.log --fork
 # alias pm=ps aux | grep -v grep | grep mongod
